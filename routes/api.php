@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 
 
-Route::post('conversations/store', 'ConversationController@store');
+//Route::post('conversations/store', 'ConversationController@store');
 Route::get('conversations', 'ConversationController@index');
 Route::get('bruteforce', 'ConversationController@bruteforce');

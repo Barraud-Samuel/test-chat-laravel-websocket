@@ -1,5 +1,6 @@
 <?php
 
+use App\Group;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
+Broadcast::channel('users.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('groups.{group}', function ($user, Group $group) {
+    if ($group->hasUser($user->id)){
+        return $user;
+    }else{
+        return false;
+    }
 });

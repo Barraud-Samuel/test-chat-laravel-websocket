@@ -19,3 +19,21 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/group/{group}', 'ConversationController@view')->name('conversation');
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::resource('groups', 'GroupController');
+
+
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'api'
+],function (){
+    Route::post('group','GroupController@store');
+    Route::get('groups','GroupController@index');
+    Route::get('group/{group}/conversation','ConversationController@show');
+    Route::post('group/{group}/conversation','ConversationController@store');
+});

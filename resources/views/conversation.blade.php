@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <groups></groups>
+        <group-chat :group="{{$group}}"></group-chat>
     </div>
 @endsection
