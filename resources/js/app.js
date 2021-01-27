@@ -27,7 +27,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-axios.defaults.baseURL = 'http://www.chat.local';
+axios.defaults.baseURL = 'https://test-real-time-chat.herokuapp.com';
 
 const app = new Vue({
     el: '#app',
